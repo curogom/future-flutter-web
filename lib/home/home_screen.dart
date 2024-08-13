@@ -68,7 +68,7 @@ class HomeContent extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset('svg/logo.svg', width: logoSize),
+              SvgPicture.asset('assets/svg/logo.svg', width: logoSize),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
