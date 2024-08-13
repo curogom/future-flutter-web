@@ -7,7 +7,7 @@ class EngCocContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      padding: const EdgeInsets.symmetric(vertical: 40),
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
       child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

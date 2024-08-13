@@ -12,17 +12,35 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black,
-      floatingActionButton: HomeFloatingActionButton(),
+      floatingActionButton: const HomeFloatingActionButton(),
       body: Stack(
         children: [
-          Positioned.fill(child: BackgroundEffect()),
-          HomeContent(),
-          Positioned(top: 20, left: 20, child: ScaffoldDrawerButton()),
+          const Positioned.fill(child: BackgroundEffect()),
+          const HomeContent(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: primaryColor.shade100,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: primaryColor.shade500,
+                    blurRadius: 4,
+                    spreadRadius: 1,
+                  ),
+                ],
+              ),
+              child: const ScaffoldDrawerButton(),
+            ),
+          ),
         ],
       ),
-      drawer: HomeDrawer(),
+      drawer: const HomeDrawer(),
     );
   }
 }
