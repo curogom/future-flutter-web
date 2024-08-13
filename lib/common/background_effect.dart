@@ -31,6 +31,12 @@ class _BackgroundEffectState extends State<BackgroundEffect>
   }
 
   @override
+  void dispose() {
+    bgController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     bgController.repeat(reverse: true);
     final size = MediaQuery.of(context).size;
