@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
+import 'package:future_flutter_web_2024/style/color.dart';
+
 class HomeFloatingActionButton extends StatefulWidget {
   const HomeFloatingActionButton({super.key});
 
@@ -23,14 +25,20 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton>
   void initState() {
     super.initState();
 
-    startColor = Colors.indigo.shade600;
-    endColor = Colors.grey.shade900;
+    startColor = primaryColor.shade600;
+    endColor = primaryColor.shade900;
     bgColorTween = ColorTween(begin: startColor, end: endColor);
     bgColorController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     );
     bgColor = bgColorTween.animate(bgColorController);
+  }
+
+  @override
+  void dispose() {
+    bgColorController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,7 +49,7 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton>
       animation: bgColor,
       builder: (context, _) => FloatingActionButton.extended(
         onPressed: () => goTicketAlertPage(),
-        hoverColor: Colors.indigo.shade600,
+        hoverColor: primaryColor.shade600,
         backgroundColor: bgColor.value,
         elevation: 10,
         label: const Row(
