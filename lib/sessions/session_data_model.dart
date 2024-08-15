@@ -57,8 +57,8 @@ const List<SessionData> sessionsData = [
     time: '12:30 ~ 12:40 (KST)',
   ),
   SessionData(
-    title: 'Flutter FFI',
-    // description: 'Future<Flutter>를 준비하기 위한 여정과 행사에 대해 소개합니다.',
+    title: 'FFI로 연결하는 고(Go)와 플러터',
+    description: 'Flutter 프로젝트에서\nGo로 작성된 다양한 라이브러리를\nFFI를 통해 연동하는 실제적인 방법을 소개합니다.\n\n머신러닝, 이미지 처리 등 다양한 분야의\nGo 라이브러리를 활용하여\nFlutter 앱의 기능을 확장할 수 있습니다.',
     speaker: SpeakerData(
       name: '이진석 (Jhin Lee)',
       bio:
@@ -94,7 +94,7 @@ const List<SessionData> sessionsData = [
     // description: 'Future<Flutter>를 준비하기 위한 여정과 행사에 대해 소개합니다.',
     speaker: SpeakerData(
       name: '박유진',
-      bio: 'ABC Studio - Merchant',
+      bio: 'ABC Merchant @Line Plus',
       imageUrl: '박유진.webp'
     ),
     time: '14:45 ~ 15:25 (KST)',
@@ -115,7 +115,7 @@ const List<SessionData> sessionsData = [
     //     '작년 사내 프로젝트로 WebRTC 기술을 이용한\n화상통화를 개발했던 경험을 회고하고,\nWebRTC 기술에 대한 개괄적인 설명과 함께\nflutter_webrtc 패키지를 활용한\n간단한 샘플 프로젝트를 소개한다.',
     speaker: SpeakerData(
       name: '김종식',
-      bio: 'ABC Studio - Retail',
+      bio: 'ABC Retail @Line Plus',
       imageUrl: '김종식.webp',
     ),
     time: '16:10 ~ 16:50 (KST)',
@@ -136,7 +136,7 @@ const List<SessionData> sessionsData = [
     //     '작년 사내 프로젝트로 WebRTC 기술을 이용한\n화상통화를 개발했던 경험을 회고하고,\nWebRTC 기술에 대한 개괄적인 설명과 함께\nflutter_webrtc 패키지를 활용한\n간단한 샘플 프로젝트를 소개한다.',
     speaker: SpeakerData(
       name: '최정연',
-      bio: 'ABC Studio - Merchant',
+      bio: 'ABC Studio Merchant @Line Plus',
       imageUrl: '최정연.webp',
     ),
     time: '17:45 ~ 18:25 (KST)',
