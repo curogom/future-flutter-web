@@ -134,7 +134,7 @@ class SpeakerInfo extends StatelessWidget {
               child: data.imageUrl == null
                   ? SvgPicture.asset('assets/svg/logo.svg')
                   : CachedNetworkImage(
-                      imageUrl: data.imageUrl!,
+                      imageUrl: hostBucket + data.imageUrl!,
                       fit: BoxFit.cover,
                       placeholder: (context, url) => Center(
                         child: CircularProgressIndicator(

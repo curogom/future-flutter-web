@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:future_flutter_web_2024/common/background_effect.dart';
 import 'package:future_flutter_web_2024/common/ff_app_bar.dart';
-import 'package:future_flutter_web_2024/home/background_effect.dart';
 import 'package:future_flutter_web_2024/home/home_drawer.dart';
 
 part 'kor_coc_content.dart';

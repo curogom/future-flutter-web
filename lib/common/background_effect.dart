@@ -39,25 +39,16 @@ class _BackgroundEffectState extends State<BackgroundEffect>
   @override
   Widget build(BuildContext context) {
     bgController.repeat(reverse: true);
-    final size = MediaQuery.of(context).size;
-    final width = size.width;
-    final height = size.height;
 
     return AnimatedBuilder(
       animation: bgController,
       builder: (context, child) {
-        List<Color> colors = width > height
-            ? [
-                topColor.value ?? Colors.black,
-                endColor,
-              ]
-            : [
-                endColor,
+        List<Color> colors = [
                 topColor.value ?? Colors.black,
                 endColor,
               ];
 
-        List<double> stops = width > height ? [0.0, 0.8] : [0.35, 0.45, 0.6];
+        List<double> stops = [0.0, 0.8];
 
         return Container(
           decoration: BoxDecoration(

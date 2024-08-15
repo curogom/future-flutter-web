@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:future_flutter_web_2024/home/background_effect.dart';
+import 'package:future_flutter_web_2024/common/background_effect.dart';
 import 'package:future_flutter_web_2024/common/drawer_button.dart';
 import 'package:future_flutter_web_2024/home/home_drawer.dart';
 import 'package:future_flutter_web_2024/home/home_floating_action_button.dart';
+import 'package:future_flutter_web_2024/sessions/session_data_model.dart';
 import 'package:future_flutter_web_2024/style/color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,10 +56,10 @@ class HomeContent extends StatelessWidget {
     final wideDevice = width > 820;
 
     final double logoSize = wideDevice ? 170 : 170 * (width / 820);
-    final logoFontSize = wideDevice ? 55.45 : 55.45 * (width / 820);
-    final locationFontSize = wideDevice ? 41.59 : 41.59 * (width / 820);
+    final double logoFontSize = wideDevice ? 55.45 : 55.45 * (width / 820);
+    final double locationFontSize = wideDevice ? 41.59 : 41.59 * (width / 820);
     final contentAlign =
-        wideDevice ? const Alignment(-0.9, 0.5) : const Alignment(-0.9, 0);
+        wideDevice ? const Alignment(-0.9, 0.5) : const Alignment(-0.9, 0.5);
 
     final logoTextStyle = GoogleFonts.montserrat(
       fontSize: logoFontSize,
@@ -98,8 +99,84 @@ class HomeContent extends StatelessWidget {
           ),
           Text('Songdo Convensia, Incheon, Korea', style: locationTextStyle),
           Text('September 28, 2024', style: locationTextStyle),
+          const SizedBox(height: 20),
+          const SponsorWidget(),
         ],
       ),
+    );
+  }
+}
+
+class SponsorWidget extends StatelessWidget {
+  const SponsorWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final width = screenSize.width;
+    final wideDevice = width > 820;
+
+    final double sponsorFontSize = wideDevice ? 32 : 32 * (width / 820);
+
+    final sponsorTextStyle = GoogleFonts.montserrat(
+      fontSize: sponsorFontSize,
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+      letterSpacing: 0.99,
+      height: 1.2,
+    );
+
+    List<Widget> getSponsors() {
+      Widget displaySponsor;
+      double? height;
+
+      if (wideDevice) {
+        height = 60;
+      } else {
+        height = 20;
+      }
+
+      Widget spacer =
+          wideDevice ? const SizedBox(width: 20) : const SizedBox(height: 4);
+
+      List<Widget> sponsorList = [
+        Image.network(
+          '${hostBucket}google_dev.webp',
+          height: height,
+        ),
+        spacer,
+        Image.network(
+          '${hostBucket}line.webp',
+          height: height,
+        )
+      ];
+
+      if (wideDevice) {
+        displaySponsor = Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: sponsorList,
+        );
+      } else {
+        displaySponsor = Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: sponsorList,
+        );
+      }
+
+      return [
+        Text(
+          'Sponsored by',
+          style: sponsorTextStyle,
+        ),
+        displaySponsor,
+      ];
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: getSponsors(),
     );
   }
 }

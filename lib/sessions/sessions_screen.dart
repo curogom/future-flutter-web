@@ -8,15 +8,17 @@ import 'package:future_flutter_web_2024/sessions/session_data_model.dart';
 import 'package:future_flutter_web_2024/style/color.dart';
 
 List<String> startTime = [
-  '13:00',
-  '13:10',
+  '12:30',
+  '12:40',
+  '13:25',
   '14:00',
-  '14:50',
-  '15:40',
-  '16:30',
-  '17:20',
-  '18:10',
-  '19:00',
+  '14:45',
+  '15:35',
+  '16:10',
+  '16:55',
+  '17:45',
+  '18:30',
+  '19:15',
 ];
 
 class SessionsScreen extends StatelessWidget {
@@ -31,9 +33,8 @@ class SessionsScreen extends StatelessWidget {
       body: Stack(
         children: [
           const BackgroundEffect(),
-          isDesktop
-              ? const SessionsDesktopCarousel()
-              : SessionsList(),
+          isDesktop ? const SessionsDesktopCarousel() : const SessionsList(),
+          const NoticeText(),
         ],
       ),
       drawer: const HomeDrawer(),
@@ -58,8 +59,7 @@ class _SessionsDesktopCarouselState extends State<SessionsDesktopCarousel> {
   void initState() {
     super.initState();
     _controller = CarouselSliderController();
-    sessions =
-        sessionsData.map((data) => SessionCard(data: data)).toList();
+    sessions = sessionsData.map((data) => SessionCard(data: data)).toList();
     _current = 0;
   }
 
@@ -129,12 +129,36 @@ class SessionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sessions = sessionsData
-        .map((data) => SessionCard(data: data))
-        .toList();
+    final sessions =
+        sessionsData.map((data) => SessionCard(data: data)).toList();
 
-    return ListView(
-      children: sessions,
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: ListView(children: sessions),
+    );
+  }
+}
+
+class NoticeText extends StatelessWidget {
+  const NoticeText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const text = '각 세션별 시간과 순서는 행사 당일 변경될 수 있습니다.';
+
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final isDesktop = width > 820;
+
+    return Align(
+      alignment: isDesktop ? Alignment.topRight : Alignment.topCenter,
+      child: Padding(
+        padding: EdgeInsets.all(isDesktop ? 8.0 : 0),
+        child: const Text(
+          text,
+          style: TextStyle(fontFamily: 'Montserrat', color: Colors.white),
+        ),
+      ),
     );
   }
 }
