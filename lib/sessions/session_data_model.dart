@@ -153,9 +153,9 @@ const List<SessionData> sessionsData = [
     isEnglish: true,
   ),
   SessionData(
-    title: 'TBD',
+    title: 'WebOS 소개 및 Flutter 적용 계획',
     // description: 'Future<Flutter>를 준비하기 위한 여정과 행사에 대해 소개합니다.',
-    speaker: SpeakerData(name: 'LG Electronics', bio: 'Korea Branch'),
+    speaker: SpeakerData(name: '이동영', bio: 'TV System App Team @LG전자'),
     time: '19:15 ~ 19:55 (KST)',
   ),
 ];
