@@ -176,6 +176,7 @@ class SponsorWidget extends StatelessWidget {
           'Sponsored by',
           style: sponsorTextStyle,
         ),
+        const SizedBox(height: 12),
         displaySponsor,
       ];
     }
