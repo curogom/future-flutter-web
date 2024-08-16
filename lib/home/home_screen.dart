@@ -58,8 +58,7 @@ class HomeContent extends StatelessWidget {
     final double logoTextSize = wideDevice ? 545 : 545 * (width / 820);
     final double logoFontSize = wideDevice ? 55.45 : 55.45 * (width / 820);
     final double locationFontSize = wideDevice ? 41.59 : 41.59 * (width / 820);
-    final contentAlign =
-        wideDevice ? const Alignment(-0.9, 0.5) : const Alignment(-0.9, 0.5);
+    const contentAlign = Alignment(-0.9, 0.5);
 
     final logoTextStyle = GoogleFonts.montserrat(
       fontSize: logoFontSize,
@@ -80,32 +79,35 @@ class HomeContent extends StatelessWidget {
 
     return Align(
       alignment: contentAlign,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SvgPicture.asset('assets/svg/logo.svg', width: logoSize),
-              const SizedBox(width: 18),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('2024', style: logoTextStyle),
-                  SvgPicture.asset(
-                    'assets/svg/ff_text_logo.svg',
-                    width: logoTextSize,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Text('Songdo Convensia, Incheon, Korea', style: locationTextStyle),
-          Text('September 28, 2024', style: locationTextStyle),
-          const SizedBox(height: 20),
-          const SponsorWidget(),
-        ],
+      child: Padding(
+        padding: wideDevice ? EdgeInsets.zero : const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset('assets/svg/logo.svg', width: logoSize),
+                const SizedBox(width: 18),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('2024', style: logoTextStyle),
+                    SvgPicture.asset(
+                      'assets/svg/ff_text_logo.svg',
+                      width: logoTextSize,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Text('Songdo Convensia, Incheon, Korea', style: locationTextStyle),
+            Text('September 28, 2024', style: locationTextStyle),
+            const SizedBox(height: 20),
+            const SponsorWidget(),
+          ],
+        ),
       ),
     );
   }

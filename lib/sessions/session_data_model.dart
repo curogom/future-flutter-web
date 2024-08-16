@@ -84,7 +84,7 @@ const List<SessionData> sessionsData = [
     speaker: SpeakerData(
       name: 'Eric Seidel',
       bio: 'ShoreBird Founder\nFlutter Co-Founder',
-      imageUrl: 'eric.webp'
+      imageUrl: 'eric2.webp'
     ),
     time: '14:00 ~ 14:40 (KST)',
     isEnglish: true,
