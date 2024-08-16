@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:future_flutter_web_2024/common/background_effect.dart';
 import 'package:future_flutter_web_2024/common/drawer_button.dart';
 import 'package:future_flutter_web_2024/home/home_drawer.dart';
+import 'package:future_flutter_web_2024/home/home_floating_action_button.dart';
 import 'package:future_flutter_web_2024/sessions/session_data_model.dart';
 import 'package:future_flutter_web_2024/style/color.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      // floatingActionButton: const HomeFloatingActionButton(),
+      floatingActionButton: const HomeFloatingActionButton(),
       body: Stack(
         children: [
           const Positioned.fill(child: BackgroundEffect()),

@@ -54,10 +54,10 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton>
         elevation: 10,
         label: const Row(
           children: [
-            Icon(Icons.notifications, color: Colors.white),
+            Icon(Icons.airplane_ticket, color: Colors.white),
             SizedBox(width: 12),
             Text(
-              '티켓 오픈시 알림받기',
+              '티켓 구매하러 가기',
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
             ),
           ],
@@ -66,7 +66,7 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton>
     );
   }
 
-  static const alertTicketUrl = 'https://forms.gle/vM6fBYQxSodSUAGj6';
+  static const alertTicketUrl = 'https://festa.io/events/5704';
 
   void goTicketAlertPage() {
     html.window.open(alertTicketUrl, '_blank');
