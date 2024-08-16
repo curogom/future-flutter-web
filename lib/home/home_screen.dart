@@ -143,7 +143,7 @@ class SponsorWidget extends StatelessWidget {
       }
 
       Widget spacer =
-          wideDevice ? const SizedBox(width: 20) : const SizedBox(height: 4);
+          wideDevice ? const SizedBox(width: 20) : const SizedBox(height: 12);
 
       List<Widget> sponsorList = [
         Image.network(
