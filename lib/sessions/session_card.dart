@@ -127,12 +127,15 @@ class SpeakerInfo extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40),
               border: Border.all(color: primaryColor.shade600),
-              color: Colors.white,
+              color: primaryColor.shade900,
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(38),
               child: data.imageUrl == null
-                  ? SvgPicture.asset('assets/svg/logo.svg')
+                  ? Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SvgPicture.asset('assets/svg/logo.svg'),
+                  )
                   : CachedNetworkImage(
                       imageUrl: hostBucket + data.imageUrl!,
                       fit: BoxFit.cover,

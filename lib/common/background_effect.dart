@@ -14,8 +14,8 @@ class _BackgroundEffectState extends State<BackgroundEffect>
   late ColorTween topColorTween;
   late Animation<Color?> topColor;
 
-  final beginColor = primaryColor.shade600;
-  final endColor = primaryColor.shade900;
+  final beginColor = const Color(0xFF0066FF);
+  final endColor = const Color(0xFF00104F);
 
   @override
   void initState() {

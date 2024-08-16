@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:future_flutter_web_2024/common/background_effect.dart';
 import 'package:future_flutter_web_2024/common/drawer_button.dart';
 import 'package:future_flutter_web_2024/home/home_drawer.dart';
-import 'package:future_flutter_web_2024/home/home_floating_action_button.dart';
 import 'package:future_flutter_web_2024/sessions/session_data_model.dart';
 import 'package:future_flutter_web_2024/style/color.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      floatingActionButton: const HomeFloatingActionButton(),
+      // floatingActionButton: const HomeFloatingActionButton(),
       body: Stack(
         children: [
           const Positioned.fill(child: BackgroundEffect()),
@@ -56,6 +55,7 @@ class HomeContent extends StatelessWidget {
     final wideDevice = width > 820;
 
     final double logoSize = wideDevice ? 170 : 170 * (width / 820);
+    final double logoTextSize = wideDevice ? 545 : 545 * (width / 820);
     final double logoFontSize = wideDevice ? 55.45 : 55.45 * (width / 820);
     final double locationFontSize = wideDevice ? 41.59 : 41.59 * (width / 820);
     final contentAlign =
@@ -88,13 +88,17 @@ class HomeContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SvgPicture.asset('assets/svg/logo.svg', width: logoSize),
+              const SizedBox(width: 18),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('2024', style: logoTextStyle),
-                  Text('Future<Flutter>', style: logoTextStyle),
+                  SvgPicture.asset(
+                    'assets/svg/ff_text_logo.svg',
+                    width: logoTextSize,
+                  ),
                 ],
-              )
+              ),
             ],
           ),
           Text('Songdo Convensia, Incheon, Korea', style: locationTextStyle),
