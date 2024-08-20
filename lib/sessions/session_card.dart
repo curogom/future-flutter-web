@@ -57,11 +57,11 @@ class SessionCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                flex: 2,
+                flex: isDesktop ? 2 : 1,
                 child: SpeakerInfo(data: data.speaker),
               ),
               Expanded(
-                flex: 3,
+                flex: isDesktop ? 3 : 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +82,7 @@ class SessionCard extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 32),
+                    SizedBox(height: isDesktop ? 16 : 8),
                     if (data.description != null)
                       Text(
                         data.description!,
@@ -113,9 +113,10 @@ class SpeakerInfo extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final isDesktop = width > 820;
-    final double imageSize  = isDesktop ? 160 : 160 * (width / 820);
+    final double imageSize = isDesktop ? 160 : 160 * (width / 820);
     final double nameFontSize = isDesktop ? 24 : 18 * (width / 820);
     final double bioFontSize = isDesktop ? 16 : 14 * (width / 820);
+    final double speakerDescFontSize = isDesktop ? 14 : 12 * (width / 820);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -133,9 +134,9 @@ class SpeakerInfo extends StatelessWidget {
               borderRadius: BorderRadius.circular(38),
               child: data.imageUrl == null
                   ? Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SvgPicture.asset('assets/svg/logo.svg'),
-                  )
+                      padding: const EdgeInsets.all(16.0),
+                      child: SvgPicture.asset('assets/svg/logo.svg'),
+                    )
                   : CachedNetworkImage(
                       imageUrl: hostBucket + data.imageUrl!,
                       fit: BoxFit.cover,
@@ -172,6 +173,18 @@ class SpeakerInfo extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                if (data.speakerDescription != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      data.speakerDescription!,
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: speakerDescFontSize,
+                      ),
+                    ),
+                  )
+
               ],
             ),
           ),

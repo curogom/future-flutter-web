@@ -155,6 +155,11 @@ class SponsorWidget extends StatelessWidget {
         Image.network(
           '${hostBucket}line.webp',
           height: height,
+        ),
+        spacer,
+        Image.network(
+          '${hostBucket}mondrian.webp',
+          height: height * 0.6,
         )
       ];
 

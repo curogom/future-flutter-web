@@ -12,36 +12,20 @@ class SessionData {
     required this.time,
     this.isEnglish = false,
   });
-
-  factory SessionData.fromJson(Map<String, dynamic> json) {
-    return SessionData(
-      speaker: SpeakerData.fromJson(json['speaker']),
-      title: json['title'],
-      description: json['description'],
-      time: json['time'],
-      isEnglish: json['isEnglish'],
-    );
-  }
 }
 
 class SpeakerData {
   final String name;
   final String bio;
   final String? imageUrl;
+  final String? speakerDescription;
 
   const SpeakerData({
     required this.name,
     required this.bio,
     this.imageUrl,
+    this.speakerDescription,
   });
-
-  factory SpeakerData.fromJson(Map<String, dynamic> json) {
-    return SpeakerData(
-      name: json['name'],
-      bio: json['bio'],
-      imageUrl: json['imageUrl'],
-    );
-  }
 }
 
 const hostBucket = "https://pub-659f1f476c7d444589f1c78e727c7a60.r2.dev/";
@@ -91,11 +75,11 @@ const List<SessionData> sessionsData = [
   ),
   SessionData(
     title: '풍성한 디자인 요청사항에 대응하기',
-    // description: 'Future<Flutter>를 준비하기 위한 여정과 행사에 대해 소개합니다.',
+    description: '다양한 디자인 요청사항을\n효과적으로 처리하는 방법과\n이를 구현하는 과정을 공유합니다.\n여러 사례를 통해 실제 프로젝트에서의\n도전과 해결책을 소개합니다.',
     speaker: SpeakerData(
       name: '박유진',
-      bio: 'ABC Merchant @Line Plus',
-      imageUrl: '박유진.webp'
+      bio: 'LINE / ABC Studio',
+      imageUrl: '박유진.webp',
     ),
     time: '14:45 ~ 15:25 (KST)',
   ),
@@ -110,12 +94,11 @@ const List<SessionData> sessionsData = [
     time: '15:35 ~ 16:05 (KST)',
   ),
   SessionData(
-    title: 'Flutter web을 활용하여 제품 개발 환경 개선하기',
-    // description:
-    //     '작년 사내 프로젝트로 WebRTC 기술을 이용한\n화상통화를 개발했던 경험을 회고하고,\nWebRTC 기술에 대한 개괄적인 설명과 함께\nflutter_webrtc 패키지를 활용한\n간단한 샘플 프로젝트를 소개한다.',
+    title: 'Flutter web을 활용하여 제품 개발 환경\n개선하기',
+    description: '일본에서 운영중인 배달 서비스\n‘데마에칸(Demaecan, 出前館)’은\nFlutter 로 개발하고 있습니다.\n현재 데마에칸에서 Flutter web 활용 사례와\n이를 위한 세 번의 과정을 소개드립니다.',
     speaker: SpeakerData(
       name: '김종식',
-      bio: 'ABC Retail @Line Plus',
+      bio: 'LINE / ABC Studio',
       imageUrl: '김종식.webp',
     ),
     time: '16:10 ~ 16:50 (KST)',
@@ -131,12 +114,11 @@ const List<SessionData> sessionsData = [
       time: '16:55 ~ 17:35 (KST)',
   ),
   SessionData(
-    title: 'Flutter Bloc을 제품 개발에 야무지게 적용하기',
-    // description:
-    //     '작년 사내 프로젝트로 WebRTC 기술을 이용한\n화상통화를 개발했던 경험을 회고하고,\nWebRTC 기술에 대한 개괄적인 설명과 함께\nflutter_webrtc 패키지를 활용한\n간단한 샘플 프로젝트를 소개한다.',
+    title: 'Flutter Bloc을 제품 개발에\n야무지게 적용하기',
+    description: 'Flutter bloc을 사용한 경험을 공유합니다.\nBloc vs Cubit, state class 설계,\n일회성 동작 처리 등을 다루며,\n실제 개발 사례와 팁을 소개합니다.',
     speaker: SpeakerData(
       name: '최정연',
-      bio: 'ABC Studio Merchant @Line Plus',
+      bio: 'LINE / ABC Studio',
       imageUrl: '최정연.webp',
     ),
     time: '17:45 ~ 18:25 (KST)',
